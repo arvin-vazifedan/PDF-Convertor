@@ -7,3 +7,4 @@ target/
 .classpath
 .recommenders
 .mvn/wrapper/maven-wrapper.jar
+pom.xml
