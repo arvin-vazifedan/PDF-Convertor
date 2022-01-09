@@ -19,8 +19,8 @@ public class Frame {
     public Frame() {
         comboBox.addItem("txt");
         comboBox.addItem("html");
-        comboBox.addItem("Docx");
         chooser.addActionListener(e -> {
+            //added filter to show only directories and pdf files.
             FileFilter filter = new FileFilter() {
                 @Override
                 public boolean accept(File f) {
@@ -51,15 +51,17 @@ public class Frame {
                     "Alert",
                     JOptionPane.WARNING_MESSAGE);
             } else {
-                String format = String.valueOf(comboBox.getSelectedItem());
+                String extension = String.valueOf(comboBox.getSelectedItem());
+                //get file path without file extension
                 String filePath = file.getPath();
                 filePath = file.getPath().substring(0, filePath.indexOf("."));
-                Util util = new Util();
+
                 String title = "The operation was successful";
                 String msg = "The new file is saved next to the original file.";
-                switch (format) {
+                Util util = new Util();
+                switch (extension) {
                     case "txt" -> {
-                        util.toTEXT(file, filePath + ".txt");
+                        util.toText(file, filePath + ".txt");
                         JOptionPane.showMessageDialog(jFrame,
                             msg,
                             title,
@@ -72,14 +74,7 @@ public class Frame {
                             title,
                             JOptionPane.INFORMATION_MESSAGE);
                     }
-                    case "Docx" -> {
-                        util.toDOCX(file, filePath + ".docx");
-                        JOptionPane.showMessageDialog(jFrame,
-                            msg,
-                            title,
-                            JOptionPane.INFORMATION_MESSAGE);
-                    }
-                    default -> throw new IllegalStateException("Unexpected value: " + format);
+                    default -> throw new IllegalStateException("Unexpected value: " + extension);
                 }
             }
         });
@@ -90,6 +85,7 @@ public class Frame {
     }
 
     private void createAndShowGUI() {
+        //Change look and feel
         try {
             new Font("Monospaced", Font.PLAIN, 14);
             UIManager.setLookAndFeel(new FlatLightLaf());
@@ -98,6 +94,7 @@ public class Frame {
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
         }
+        //Creating and showing JFrame
         jFrame.setContentPane(new Frame().panel);
         jFrame.setTitle("PDF Converter");
         jFrame.setLocationRelativeTo(null);
