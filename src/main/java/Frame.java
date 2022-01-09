@@ -3,21 +3,23 @@ import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
+import java.awt.*;
 import java.io.File;
 
 public class Frame {
     private static final JFrame jFrame = new JFrame();
-    private final String[] formats = {"txt", "html", "Docx"};
     private final JFileChooser fc = new JFileChooser();
-    private JComboBox<String> comboBox;
     private JPanel panel;
+    private JComboBox<String> comboBox;
     private JButton convert;
     private JButton chooser;
     private JLabel label;
     private File file;
 
     public Frame() {
-
+        comboBox.addItem("txt");
+        comboBox.addItem("html");
+        comboBox.addItem("Docx");
         chooser.addActionListener(e -> {
             FileFilter filter = new FileFilter() {
                 @Override
@@ -84,10 +86,15 @@ public class Frame {
     }
 
     public static void main(String[] args) {
+        new Frame().createAndShowGUI();
+    }
 
+    private void createAndShowGUI() {
         try {
+            new Font("Monospaced", Font.PLAIN, 14);
             UIManager.setLookAndFeel(new FlatLightLaf());
             FlatDarkPurpleIJTheme.setup();
+
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
         }
@@ -99,9 +106,4 @@ public class Frame {
         jFrame.setResizable(false);
         jFrame.setVisible(true);
     }
-
-    private void createUIComponents() {
-        comboBox = new JComboBox<>(formats);
-    }
-
 }
