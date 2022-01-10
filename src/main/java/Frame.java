@@ -1,9 +1,5 @@
 import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatDraculaIJTheme;
-import com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkSoftIJTheme;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightIJTheme;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatLightOwlIJTheme;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
@@ -94,7 +90,7 @@ public class Frame {
             FlatDraculaIJTheme.setup();
 
         } catch (Exception ex) {
-            System.err.println("Failed to initialize LaF");
+            ex.printStackTrace();
         }
         //Creating and showing JFrame
         jFrame.setContentPane(new Frame().panel);
