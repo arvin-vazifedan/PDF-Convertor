@@ -1,9 +1,12 @@
 import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatDraculaIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkSoftIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatLightOwlIJTheme;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
-import java.awt.*;
 import java.io.File;
 
 public class Frame {
@@ -87,9 +90,8 @@ public class Frame {
     private void createAndShowGUI() {
         //Change look and feel
         try {
-            new Font("Monospaced", Font.PLAIN, 14);
             UIManager.setLookAndFeel(new FlatLightLaf());
-            FlatDarkPurpleIJTheme.setup();
+            FlatDraculaIJTheme.setup();
 
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
