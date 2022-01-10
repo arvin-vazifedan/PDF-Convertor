@@ -3,5 +3,5 @@ A Java based PDF convertor that uses [Apache PDFBox ](https://pdfbox.apache.org/
 
 <img src="https://raw.githubusercontent.com/arvin-vazifedan/PDF-Convertor/master/asset/dark.png"/></br>
 
-<img src="https://raw.githubusercontent.com/arvin-vazifedan/PDF-Convertor/master/asset/light.png"/></br>
+<img src="https://raw.githubusercontent.com/arvin-vazifedan/PDF-Convertor/master/asset/light.png"/>
 
